@@ -39,7 +39,7 @@ export default function Navbar(props) {
         <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
           <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
           <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.capital(props.mode==='light'?'dark':'light')} Mode</label>
-                                                                                {/* // capital function used from app.js  ^^ */}
+                                                 {/* // capital function used from app.js  ^^ */}
         </div>                                                                  
       </div>
     </div>

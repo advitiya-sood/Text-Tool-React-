@@ -3,7 +3,11 @@ import React, {useState} from 'react'
 export default function TextForm(props) {
 
     const [text, setText]=useState("");
-    const [email, setEmail]=useState("")
+    const [email, setEmail]=useState("");
+    let wc=0;
+    let sp=0;
+    let count=true;
+    
 
     const handleOnClick=()=>{   
         let upperText=text.toUpperCase()
@@ -25,6 +29,20 @@ export default function TextForm(props) {
         setText(event.target.value)
     }
 
+    const wordCount=(tWords)=>{
+        for (let t =0;t<tWords.length;t++){
+            if (tWords[t]==' ' || tWords[t] == '\n' ||
+            tWords[t] == '\t'){
+                sp+=1
+                count=true
+            }            
+            else if (count==true){
+                count=false
+                wc+=1
+            }
+        }
+        return wc      
+   }
    
    
 
@@ -44,8 +62,8 @@ export default function TextForm(props) {
     <h4>
        Text Summary
     </h4>
-    <p>words:{text.split(' ').length}  Characters:{text.length}</p>
-    <p>Time to read: {0.008*text.split(" ").length} Minutes</p>
+     <p>Words:{wordCount(text)}  Characters:{text.length-sp}</p>    {/* wordCount function used */}
+    <p>Time to read: {0.008*wordCount(text)} Minutes</p>
     <h4> Preview </h4>
     <p>{text}</p>
     <h3>Emails Are: {email} </h3>
