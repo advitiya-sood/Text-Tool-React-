@@ -5,7 +5,7 @@ export default function TextForm(props) {
     const [text, setText]=useState("");
     const [email, setEmail]=useState("");
     let wc=0;
-    let sp=0;
+    let sp=0;                                // doubt why cant i use normal variables 
     let count=true;
     
 
@@ -45,7 +45,6 @@ export default function TextForm(props) {
    }
    
    
-
   return (
 <>
 <div className="mb-3"  style={{color:props.mode==='dark'?'white':'black'}}>
