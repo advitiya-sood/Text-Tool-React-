@@ -20,9 +20,8 @@ export default function TextForm(props) {
     }
 
     const emailExtract=()=>{
-        let emails=text.match(/([a-zA-Z0-9._+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi).join(", ")
+        let emails=text.match(/([a-zA-Z0-9._+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi).join(", ") || []
         setEmail(emails)  
-     
         }
     
     const handleOnChange=(event) =>{    
@@ -52,9 +51,9 @@ export default function TextForm(props) {
     <textarea className="form-control" id="exampleFormControlTextarea1" value={text} onChange={handleOnChange} rows="5"style={{color:props.mode==='dark'?'white':'black',
      backgroundColor:props.mode==='dark'?'grey':'white'}}></textarea>
 </div>
-<button className='btn btn-primary mx-2'  onClick={handleOnClick} >Convert To UpperCase</button>
-<button className='btn btn-primary mx-2'  onClick={handleLower} >Convert To LowerCase</button>
-<button className='btn btn-primary mx-2'  onClick={emailExtract} >Extract Email</button>
+<button className='btn btn-primary mx-2 my-1'  onClick={handleOnClick} >Convert To UpperCase</button>
+<button className='btn btn-primary mx-2 my-1'  onClick={handleLower} >Convert To LowerCase</button>
+<button className='btn btn-primary mx-2 my-1'  onClick={emailExtract} >Extract Email</button>
 
 
 <div className='container my-3' style={{color:props.mode==='dark'?'white':'black'}}>
